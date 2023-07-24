@@ -10,9 +10,9 @@ import { firebaseAuth } from "./config";
 //creamos el proveedor en este caso es google, puede ser igual con Facebook, twiter, etc.
 const googleProvider = new GoogleAuthProvider();
 
-googleProvider.setCustomParameters({
-  prompt: "select_account",
-});
+// googleProvider.setCustomParameters({
+//   prompt: "select_account",
+// });
 
 export const signInWithGoogle = async () => {
   try {

@@ -19,9 +19,15 @@ export const startGoogleSignIn = () => {
     dispatch(checkingCredentials());
 
     const result = await signInWithGoogle();
-    if (!result.ok) return dispatch(logout(result));
+    if (!result.ok) {
+      dispatch(logout(result));
+    } else {
+      dispatch(login(result));
 
-    dispatch(login(result));
+      // Llama a window.close() aquí después de completar el inicio de sesión con Google
+      // Esto asegura que se cierre la ventana emergente desde la ventana principal
+      window.close();
+    }
   };
 };
 
